@@ -21,3 +21,9 @@ Domain problem: Education
   alt="Image containing a UML diagram for the assigned task."
   title="UML Diagram"
   style="display: inline-block; margin: 0 auto; max-width: 400px">
+  
+ ## Q10.
+ 
+Finally, discuss with your team the improvements that you could make to this solution, and
+possibly some obvious flaws in both the (uml domain) design and implementation of the system.
+Note these in the “Readme.md” of your project.
