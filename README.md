@@ -17,7 +17,7 @@ Domain problem: Education
 
 ## UML Diagram
 <img
-  src="src/Group 26 - school_management_system.png"
+  src="school_management_system.png"
   alt="Image containing a UML diagram for the assigned task."
   title="UML Diagram"
   style="display: inline-block; margin: 0 auto; max-width: 400px">
