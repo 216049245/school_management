@@ -6,14 +6,14 @@ Domain problem: Education
 
 ## Group Members
 
-| Student No | Name            | 
-|------------|-----------------|
-| 216049245  | Brandon Kruger  |
-| 218336969  | Guy De La Cruz  |
-| 220357676  | Jesse Hiebner   |
-| 219350744  | Monehi Tuoane   |
-| 219369399  | Lutho Nondala   |
-| 219084777  | Siphiwe Chauque |
+| Student No | Name            | Assigned Task   |
+|------------|-----------------|-----------------|
+| 216049245  | Brandon Kruger  |                 |
+| 218336969  | Guy De La Cruz  |                 |
+| 220357676  | Jesse Hiebner   |                 |
+| 219350744  | Monehi Tuoane   |                 |
+| 219369399  | Lutho Nondala   |        ?        |
+| 219084777  | Siphiwe Chauque |        ?        |
 
 ## UML Diagram
 <img
