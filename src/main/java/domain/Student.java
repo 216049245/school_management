@@ -7,6 +7,16 @@ public class Student {
             email,
             name;
 
+    /*
+     * private Name name;
+     * Need Sipiwe to finish the Name.java entity
+     * in order to inherit
+     * the "Name" attributes
+     */
+
+
+
+
     //Builder Class
     private Student(Builder builder) {
 
