@@ -1,6 +1,5 @@
 package factory;
 
-
 import domain.Student;
 
 public class StudentFactory {
