@@ -45,6 +45,10 @@ public class StudentAddress {
             this.address = address;
             return this;
         }
+
+        public StudentAddress build() {
+            return new StudentAddress(this);
+        }
     }
 
     @Override
