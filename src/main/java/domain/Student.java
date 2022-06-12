@@ -44,11 +44,16 @@ public class Student {
 
         private String
                 studentId,
-                email,
-                name;
+                name,
+                email;
 
         public Builder studentId(String studentId) {
             this.studentId = studentId;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
             return this;
         }
 
@@ -57,9 +62,9 @@ public class Student {
             return this;
         }
 
-        public Builder name(String name) {
-            this.name = name;
-            return this;
+
+        public Student build() {
+            return new Student(this);
         }
     }
 
