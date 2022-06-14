@@ -9,7 +9,7 @@ Domain problem: Education
 | Student No | Name            | Assigned Task            |
 |------------|-----------------|--------------------------|
 | 216049245  | Brandon Kruger  | Employee                 |
-| 218336969  | Guy De La Cruz  | City / Country           |
+| 218336969  | Guy De La Cruz  | City / domain.Country           |
 | 220357676  | Jesse Hiebner   | Employee Address         |
 | 219350744  | Monehi Tuoane   | Student / StudentAddress |
 | 219369399  | Lutho Nondala   | Address                  |
