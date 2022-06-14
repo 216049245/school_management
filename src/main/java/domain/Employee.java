@@ -51,7 +51,6 @@ public class Employee {
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
         return staffID.equals(employee.staffID);
-
     }
 
     @Override
