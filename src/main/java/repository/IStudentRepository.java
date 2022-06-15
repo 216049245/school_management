@@ -6,11 +6,13 @@ Date: 15 June 2022
 
 package repository;
 
-import java.util.Optional;
+import domain.Student;
 
-public interface IStudentRepository<T, ID> {
+import java.util.List;
 
-    Optional<T> read(ID studentId);
-    void delete(T t);
+public interface IStudentRepository<S, S1> extends IRepository<Student, String> {
+
+    List<Student> findAll();
+
 
 }

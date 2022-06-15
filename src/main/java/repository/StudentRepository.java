@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 //CRUD
-public class StudentRepository implements IStudentRepository<Student, String> {
+public class StudentRepository implements IStudentRepository<Student, String>{
 
     //Implement singleton
     private final List<Student> studentList;
@@ -29,12 +29,19 @@ public class StudentRepository implements IStudentRepository<Student, String> {
         return STUDENT_REPO;
     }
 
-
-    public Student create(Student student) {
+    //Create and Update into Save
+    public Student save(Student student) {
+        //Update
+        Optional<Student> read = read(student.getStudentId());
+        if (read.isPresent()) {
+            delete(read.get());
+        }
+        //Create
         this.studentList.add(student);
         return  student;
     }
 
+    //Read
     //"Optional <method>..." prevents a return of null
     public Optional<Student> read(String studentId) {
         //find student that matches the student id and return
@@ -43,26 +50,16 @@ public class StudentRepository implements IStudentRepository<Student, String> {
 
     }
 
+
+
+    //Delete
     @Override
     public void delete(Student student) {
+        this.studentList.remove(student);
 
     }
 
-    public Student  update(Student student) {
-        //check if student exists, if yes update and return if successful
-        Optional<Student> read = read(student.getStudentId());
-        if (read.isPresent()) {
-            delete(String.valueOf(read.get()));
-            create(student);
-        }
-        return student;
-    }
-
-    public void delete(String studentId) {
-        //finds the student if required and delete
-        this.studentList.remove(studentId);
-    }
-
+    //Find All
     public List<Student> findAll() {
         //returns all the stored students
         return this.studentList;
