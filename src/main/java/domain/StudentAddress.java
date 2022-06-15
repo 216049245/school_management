@@ -4,7 +4,7 @@ package domain;
 
 public class StudentAddress {
 
-    private String studentId;
+    private final String studentId;
     private  String address;
 
     /*
@@ -14,7 +14,7 @@ public class StudentAddress {
      * the "Address" attributes
      */
 
-    //Builder class
+    //Builder
     private StudentAddress(Builder builder) {
 
         this.studentId = builder.studentId;
