@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 //CRUD
-public class StudentRepository {
+public class StudentRepository implements IStudentRepository<Student, String> {
 
     //Implement singleton
     private final List<Student> studentList;
@@ -40,6 +40,11 @@ public class StudentRepository {
         //find student that matches the student id and return
         return this.studentList.stream().filter(s -> s.getStudentId().equalsIgnoreCase(studentId))
                 .findAny();
+
+    }
+
+    @Override
+    public void delete(Student student) {
 
     }
 

@@ -6,6 +6,11 @@ Date: 15 June 2022
 
 package repository;
 
-public class IStudentRepository {
+import java.util.Optional;
+
+public interface IStudentRepository<T, ID> {
+
+    Optional<T> read(ID studentId);
+    void delete(T t);
 
 }
