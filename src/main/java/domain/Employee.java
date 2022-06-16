@@ -1,3 +1,8 @@
+/*
+Employee.java
+Author: Brandon Lee Kruger (216049245)
+Date: 15 June 2022
+*/
 package domain;
 
 import java.util.Objects;
