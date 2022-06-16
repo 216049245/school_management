@@ -10,7 +10,7 @@ import domain.Student;
 
 import java.util.List;
 
-public interface IStudentRepository<S, S1> extends IRepository<Student, String> {
+public interface IStudentRepository extends IRepository<Student, String> {
 
     List<Student> findAll();
 
