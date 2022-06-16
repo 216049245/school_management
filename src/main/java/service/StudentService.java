@@ -1,10 +1,13 @@
+/*
+StudentService.java
+Author: Monehi Tuoane (219350744)
+Date: 16 June 2022
+*/
+
 package service;
 
 import domain.Student;
 import repository.StudentRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class StudentService implements IStudentService{
