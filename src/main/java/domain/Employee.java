@@ -1,3 +1,8 @@
+/*
+Employee.java
+Author: Brandon Lee Kruger (216049245)
+Date: 15 June 2022
+*/
 package domain;
 
 import java.util.Objects;
@@ -51,7 +56,6 @@ public class Employee {
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
         return staffID.equals(employee.staffID);
-
     }
 
     @Override
