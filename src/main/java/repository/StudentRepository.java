@@ -8,12 +8,13 @@ package repository;
 
 import domain.Student;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 //CRUD
-public class StudentRepository implements IStudentRepository<Student, String>{
+public class StudentRepository implements IStudentRepository{
 
     //Implement singleton
     private final List<Student> studentList;
