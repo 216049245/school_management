@@ -1,4 +1,11 @@
+/*
+Student.java
+Author: Monehi Tuoane (219350744)
+Date: 15 June 2022
+*/
 package domain;
+
+import java.util.Objects;
 
 public class Student {
 
@@ -66,6 +73,20 @@ public class Student {
         public Student build() {
             return new Student(this);
         }
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student that = (Student) obj;
+        return studentId.equals(that.studentId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId);
     }
 
     @Override

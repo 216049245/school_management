@@ -1,13 +1,9 @@
-package repository;
+package service;
 
 import java.util.Optional;
 
-public interface IRepository <T, ID>{
-
+public interface IService <T, ID> {
     T save(T t);
-    T create(T t);
-    T update(T t);
     Optional<T> read(ID id);
     void delete(T t);
-
 }
