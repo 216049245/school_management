@@ -54,15 +54,14 @@ public class AddressRepository implements IAddressRepository {
     }
 
     @Override
-    public boolean delete(String addressUN) {
+    public void delete(String addressUN) {
         Address deleteAddress = read(addressUN);
         if (deleteAddress == null) {
             System.out.println("Address is null.");
-            return false;
         }
         addressDB.remove(deleteAddress);
         System.out.println("Address removed.");
-        return true;
+
     }
 
 
