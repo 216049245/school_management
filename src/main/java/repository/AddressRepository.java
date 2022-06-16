@@ -3,6 +3,7 @@ package repository;
 import domain.Address;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class AddressRepository implements IAddressRepository {
@@ -18,32 +19,31 @@ public class AddressRepository implements IAddressRepository {
         return repository;
     }
 
-    @Override
-    public Address create(Address address){
-        boolean success = addressDB.add(address);
-        if(!success) {
-            return null;
-        }
-        return address;
-    }
 
-    @Override
+    //@Override :commented out by Monehi Tuoane
     public Address read(Address ID) {
         return null;
     }
 
     @Override
-    public Address read(String addressUN) {
+    public Optional<Address> read(String addressUN) {
         Address address = addressDB.stream()
                 .filter(p -> p.getUnitNumber().equals(addressUN))
                 .findAny()
                 .orElse(null);
-        return address;
+        //Changed to Optional By Monehi Tuoane
+        return Optional.ofNullable(address);
+    }
+
+    @Override
+    public void delete(Address address) {
+
     }
 
     @Override
     public Address update(Address address) {
-        Address unit = read(address.getUnitNumber());
+        //Changed to Optional By Monehi Tuoane
+        Optional<Address> unit = read(address.getUnitNumber());
         if(unit != null){
             addressDB.remove(unit);
             addressDB.add(address);
@@ -53,9 +53,10 @@ public class AddressRepository implements IAddressRepository {
 
     }
 
-    @Override
+    //@Override ://commented out by Monehi Tuoane
     public void delete(String addressUN) {
-        Address deleteAddress = read(addressUN);
+        //Changed to Optional By Monehi Tuoane
+        Optional<Address> deleteAddress = read(addressUN);
         if (deleteAddress == null) {
             System.out.println("Address is null.");
         }
@@ -64,9 +65,25 @@ public class AddressRepository implements IAddressRepository {
 
     }
 
-
     @Override
     public Set<Address> getAll() {
         return addressDB;
+    }
+
+
+
+    //Added by Monehi Tuoane
+    @Override
+    public Address save(Address address) {
+        return null;
+    }
+
+    @Override
+    public Address create(Address address){
+        boolean success = addressDB.add(address);
+        if(!success) {
+            return null;
+        }
+        return address;
     }
 }

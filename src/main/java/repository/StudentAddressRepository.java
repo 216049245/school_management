@@ -35,6 +35,7 @@ public class StudentAddressRepository implements IStudentAddressRepository{
         return  studentAddress;
     }
 
+
     //Read
     //"Optional <method>..." prevents a return of null
     public Optional<StudentAddress> read(String studentId) {
@@ -55,6 +56,17 @@ public class StudentAddressRepository implements IStudentAddressRepository{
     public List<StudentAddress> findAll() {
         //returns all the stored students
         return this.studentAddressList;
+    }
+
+
+    @Override
+    public StudentAddress create(StudentAddress studentAddress) {
+        return null;
+    }
+
+    @Override
+    public StudentAddress update(StudentAddress studentAddress) {
+        return null;
     }
 
 }
