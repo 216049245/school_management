@@ -21,4 +21,14 @@ class AddressFactoryTest {
         System.out.println(address.toString());
         assertNotNull(address);
     }
+
+    @Test
+    public void testWithError(){
+        Country country = CountryFactory.createCountryFactory("345", "Finland");
+        City city = CityFactory.createCityFactory("776", "Helsinki", country);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> AddressFactory.createAddress(null, "Garm", "456", "Floki", 3456, city));
+        String exceptionMessage = exception.getMessage();
+        System.out.println(exceptionMessage);
+        assertSame("Unit Number is required", exceptionMessage);
+    }
 }
