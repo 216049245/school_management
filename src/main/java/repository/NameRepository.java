@@ -2,7 +2,10 @@ package repository;
 
 import domain.Name;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /*
@@ -14,7 +17,7 @@ import java.util.stream.Collectors;
 
 public abstract class NameRepository implements iNameRepository<Name> {
     private static List<Name> nameList;
-    private static NameRepository NIRepo = null;
+    private static NameRepository NIRepo;
 
 //    Constructor
 NameRepository() {
@@ -97,7 +100,7 @@ NameRepository() {
         return this;
     }
 
-    public List<Name> findByFirstName(Name name){
+    public List<Name> getByFirstName(Name name){
         return this.nameList
                 .stream()
                 .filter(g -> g.getFirstName().equalsIgnoreCase(name.getFirstName()))

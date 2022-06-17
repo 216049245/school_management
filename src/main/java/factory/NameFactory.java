@@ -1,5 +1,4 @@
 package factory;
-
 import domain.Name;
 import helper.GenericHelper;
 
@@ -12,13 +11,10 @@ import helper.GenericHelper;
 public class NameFactory {
     public static Name buildName(String firstName, String middleName, String lastName){
 
-        GenericHelper.checkStringParam("Siphiwe", firstName);
-        GenericHelper.checkStringParam(null, middleName);
-        GenericHelper.checkStringParam("Last Name", lastName);
-        middleName = GenericHelper.setEmptyIfNull(middleName);
-
+        GenericHelper.checkStringParam("firstName", firstName);
+        GenericHelper.checkStringParam("middleName", middleName);
+        GenericHelper.checkStringParam("lastName", lastName);
         return new Name.Builder().firstName(firstName).middleName(middleName).lastName(lastName).build();
-
     }
 }
 

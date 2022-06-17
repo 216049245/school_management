@@ -7,7 +7,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import repository.NameRepositoryImpl;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 /*
  * Siphiwe Edson Chauque -219084777
@@ -42,17 +44,12 @@ class NameServiceImplTest {
         Name nam = NameFactory.buildName("Siphiwe","Edson","Chauque");
         assertSame("Siphiwe",nam.getFirstName());
     }
-
-
-
     @Test
     public void a_create() {
         Name inserted = service.create(name1);
         assertEquals(inserted.getFirstName(), name1.getFirstName());
         System.out.println("Inserted: " + inserted);
     }
-
-
 
     @Test
     public void e_delete() {

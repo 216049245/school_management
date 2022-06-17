@@ -3,6 +3,7 @@ package service;
 import domain.Name;
 import repository.NameRepository;
 import repository.NameRepositoryImpl;
+
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -31,8 +32,6 @@ public class NameServiceImpl implements NameService {
     public Name save(Name name) {
         return (Name) this.repository.getall();
     }
-
-
     @Override
     public <ID> Optional<Name> read(ID id) {
         return Optional.empty();

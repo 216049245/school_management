@@ -5,7 +5,8 @@ import factory.NameFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /*
  * Siphiwe Edson Chauque -219084777
@@ -16,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class NameRepositoryImplTest {
     final static NameRepositoryImpl NameRepo = (NameRepositoryImpl) NameRepositoryImpl.getRepository();
     private final static Name name = NameFactory.buildName("Vusi","Jerson", "Chauque");
-
 
     @Test
     void a_create() {

@@ -1,8 +1,6 @@
 package helper;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
+
 
 /*
  * Siphiwe Edson Chauque -219084777
@@ -11,23 +9,26 @@ import org.springframework.util.StringUtils;
  * ***Name*** entity
  */
 
-@UtilityClass
-@Slf4j
 public class GenericHelper {
 
-    public static boolean isEmpty(String str) {
-        return !StringUtils.hasText(str);
+    public static boolean isEmptyOrNull(String str) {
+        return StringUtils.isEmpty(str);
+    }
+    public static String setEmptyIfNull(String str){
+        if (isEmptyOrNull(str)){
+            return null;
+        }
+        return str;
     }
 
-    public static String setEmptyIfNull(String str) {
-        return isEmpty(str) ? "" : str;
+    public static void checkStringParam(String paramName, String paramValue) {
+        if (isEmptyOrNull(paramValue))
+            throw new IllegalArgumentException(String.format("Invalid value for: %s", paramName));
     }
 
-    public static void checkStringParam(String paramName, String paramValue) throws IllegalArgumentException {
-        if (isEmpty(paramValue)) {
-            String error = String.format("Invalid value for param: %s", paramName);
-            log.error("{}", error);
-            throw new IllegalArgumentException(error);
+    public static void checkIfObjectNull(String objectName, Object object) { //Checks object attributes to ensure they are not null.
+        if (object == null) {
+            throw new IllegalArgumentException(String.format("%s is null", objectName));
         }
     }
 }
