@@ -3,19 +3,27 @@ package repository;
 import domain.Address;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class AddressRepository implements IAddressRepository {
     private static AddressRepository repository = null;
     private Set<Address> addressDB = null;
 
-    private AddressRepository (){addressDB = new HashSet<Address>(); }
+    private AddressRepository (){
+        addressDB = new HashSet<Address>();
+    }
 
     public static AddressRepository getRepository(){
         if(repository == null) {
             repository = new AddressRepository();
         }
         return repository;
+    }
+
+    @Override
+    public Address save(Address address) {
+        return null;
     }
 
     @Override
@@ -27,23 +35,28 @@ public class AddressRepository implements IAddressRepository {
         return address;
     }
 
-    @Override
-    public Address read(Address ID) {
-        return null;
-    }
+//    @Override
+//    public Address read(Address ID) {
+//        return null;
+//    }
 
     @Override
-    public Address read(String addressUN) {
-        Address address = addressDB.stream()
+    public Optional<Address> read(String addressUN) {
+        Optional<Address> address = Optional.ofNullable(addressDB.stream()
                 .filter(p -> p.getUnitNumber().equals(addressUN))
                 .findAny()
-                .orElse(null);
+                .orElse(null));
         return address;
     }
 
+//    @Override
+//    public void delete(Address address) {
+//
+//    }
+
     @Override
     public Address update(Address address) {
-        Address unit = read(address.getUnitNumber());
+        Optional<Address> unit = read(address.getUnitNumber());
         if(unit != null){
             addressDB.remove(unit);
             addressDB.add(address);
@@ -54,13 +67,8 @@ public class AddressRepository implements IAddressRepository {
     }
 
     @Override
-    public void delete(String addressUN) {
-        Address deleteAddress = read(addressUN);
-        if (deleteAddress == null) {
-            System.out.println("Address is null.");
-        }
-        addressDB.remove(deleteAddress);
-        System.out.println("Address removed.");
+    public void delete(Address address) {
+        this.addressDB.remove(address);
 
     }
 

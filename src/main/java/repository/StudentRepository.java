@@ -41,6 +41,16 @@ public class StudentRepository implements IStudentRepository<Student, String>{
         return  student;
     }
 
+    @Override
+    public Student create(Student student) {
+        return null;
+    }
+
+    @Override
+    public Student update(Student student) {
+        return null;
+    }
+
     //Read
     //"Optional <method>..." prevents a return of null
     public Optional<Student> read(String studentId) {
