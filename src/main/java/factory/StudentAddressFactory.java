@@ -5,11 +5,10 @@ import domain.StudentAddress;
 public class StudentAddressFactory {
 
 
-    public static StudentAddress createStudentAddress(String studentId, String address) {
+    public static StudentAddress build(String studentId, String address) {
 
-        StudentAddress StudentAddress =  new StudentAddress.Builder().studentId(studentId)
+        return new StudentAddress.Builder().studentId(studentId)
                 .address(address)
                 .build();
-        return StudentAddress;
     }
 }

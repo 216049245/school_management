@@ -42,6 +42,8 @@ public class StudentRepository implements IStudentRepository{
         return  student;
     }
 
+
+
     //Read
     //"Optional <method>..." prevents a return of null
     public Optional<Student> read(String studentId) {
@@ -64,6 +66,17 @@ public class StudentRepository implements IStudentRepository{
     public List<Student> findAll() {
         //returns all the stored students
         return this.studentList;
+    }
+
+    //Not needed
+    @Override
+    public Student create(Student student) {
+        return null;
+    }
+
+    @Override
+    public Student update(Student student) {
+        return null;
     }
 
 
