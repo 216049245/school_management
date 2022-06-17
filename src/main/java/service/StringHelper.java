@@ -8,12 +8,12 @@ public class StringHelper
     {
         return StringUtils.isEmpty(str);
     }
-        public static String SetEmptyIfNull(String str)
-        {
-            if (isEmptyOrNull(str)) return StringUtils.EMPTY;
-                return str;
+    public static String SetEmptyIfNull(String str)
+    {
+        if (isEmptyOrNull(str)) return StringUtils.EMPTY;
+        return str;
 
-        }
+    }
 
     public static void checkStringParam(String paramName, String paramValue)
     {

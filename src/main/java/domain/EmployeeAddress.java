@@ -1,3 +1,9 @@
+/*
+ *   Entity: EmployeeAddress.java
+ *   Author: Jesse Merold Hiebner
+ *   Date: 14/06/2022
+ */
+
 package domain;
 
 import java.util.Objects;
@@ -5,7 +11,7 @@ import java.util.Objects;
 public class EmployeeAddress{
     //globals;
     private final String staffID;
-    private final Address address;
+    private final String address; //change to address when you are able to. EVERYWHERE
 
 
     private EmployeeAddress(Builder builder)
@@ -15,12 +21,12 @@ public class EmployeeAddress{
     }
 
     public String getStaffID(){return staffID;}
-    public Address getAddress(){return address;}
+    public String getAddress(){return address;}
 
     public static class Builder
     {
         private String staffId;
-        private Address address;
+        private String address;
 
         public Builder staffId(String staffId)
         {
@@ -28,7 +34,7 @@ public class EmployeeAddress{
             return this;
         }
 
-        public Builder address(Address address)
+        public Builder address(String address)
         {
             this.address = address;
             return this;
@@ -44,6 +50,34 @@ public class EmployeeAddress{
         public EmployeeAddress build()
         {
             return new EmployeeAddress(this);
+        }
+    }
+
+    //Inner Class
+    public static class EmployeeAddressId
+    { //Immutable Object. Not used. Dont have composite key
+        private String staffId;
+
+        public EmployeeAddressId(String staffId) {
+            this.staffId = staffId;
+        }
+
+        public String getStaffId() {
+            return staffId;
+        }
+
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            EmployeeAddressId that = (EmployeeAddressId) o;
+            return staffId.equals(that.staffId);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(staffId);
         }
     }
 

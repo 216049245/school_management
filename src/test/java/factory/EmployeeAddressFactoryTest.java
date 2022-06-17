@@ -1,6 +1,5 @@
 package factory;
 
-import domain.Address;
 import domain.EmployeeAddress;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,7 @@ class EmployeeAddressFactoryTest
     public void buildWithSuccess()
     {
         EmployeeAddress employeeAddress = EmployeeAddressFactory
-                .build("1ABCS",null);
+                .build("1ABCS","18 Cyprus Rd, Wetton");
         System.out.println(employeeAddress);
         assertNotNull(employeeAddress);
     }
