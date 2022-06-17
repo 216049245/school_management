@@ -50,24 +50,13 @@ public class NameRepositoryImpl extends NameRepository {
     }
 
     @Override
-    public Optional<Name> read(String s) {
-        for (Name nam : this.Names) {
-            if (nam.equals(nam));
-            return Optional.of(nam);
-        }
+    public Set<Name> getAll() {
         return null;
     }
 
     @Override
-    public Set<Name> getAll() {
-        return this.Names;
-    }
-
-
-
-    @Override
     public Set<Name> getall() {
-        return this.Names;
+        return null;
     }
 
     @Override
@@ -75,6 +64,13 @@ public class NameRepositoryImpl extends NameRepository {
         return null;
     }
 
-
+    @Override
+    public Optional<Name> read(String s) {
+        for (Name nam : this.Names) {
+            if (nam.equals(nam)) ;
+            return Optional.of(nam);
+        }
+        return null;
+    }
 }
 

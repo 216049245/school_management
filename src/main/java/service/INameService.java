@@ -12,11 +12,11 @@ import java.util.Optional;
  */
 
 public interface INameService<T, ID> {
-    public T save(T t);
+    T save(T t);
 
-    public <ID> Optional<T> read(ID id);
+    <ID> Optional<T> read(ID id);
 
-    public Name delete(T t);
+    Name delete(T t);
 
     Name create(T t);
 
