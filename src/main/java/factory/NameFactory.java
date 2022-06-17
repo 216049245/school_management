@@ -12,11 +12,13 @@ import helper.GenericHelper;
 public class NameFactory {
     public static Name buildName(String firstName, String middleName, String lastName){
 
-        GenericHelper.checkStringParam("First Name", firstName);
+        GenericHelper.checkStringParam("Siphiwe", firstName);
+        GenericHelper.checkStringParam(null, middleName);
         GenericHelper.checkStringParam("Last Name", lastName);
         middleName = GenericHelper.setEmptyIfNull(middleName);
 
         return new Name.Builder().firstName(firstName).middleName(middleName).lastName(lastName).build();
+
     }
 }
 
