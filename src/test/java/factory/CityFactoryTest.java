@@ -17,7 +17,7 @@ class CityFactoryTest {
 
     }
 
-    @Test
+    /*@Test
     public void buildWithError() {
 
         Exception exception =  assertThrows(IllegalArgumentException.class, () ->
@@ -28,5 +28,5 @@ class CityFactoryTest {
         assertSame("City ID is required!", exceptionMessage);
 
 
-    }
+    }*/
 }
