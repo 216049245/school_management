@@ -55,7 +55,7 @@ public class EmployeeAddress{
 
     //Inner Class
     public static class EmployeeAddressId
-    { //Immutable Object. Not used. Dont have composite key
+    { //Immutable Object. Not used. Don't have composite key
         private String staffId;
 
         public EmployeeAddressId(String staffId) {
