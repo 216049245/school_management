@@ -11,21 +11,25 @@ import java.util.Objects;
  * ***Name*** entity
  */
 public class Name {
-    private final String firstName;
-    private final String middleName;
-    private final String lastName;
+    private final String firstName, middleName, lastName;
 
-    private Name(Builder builder){
+    public Name(Builder builder) {
         this.firstName = builder.firstName;
         this.middleName = builder.middleName;
         this.lastName = builder.lastName;
     }
 
-    public String getFirstName() {return firstName;}
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public String getMiddleName() {return middleName;}
+    public String getMiddleName() {
+        return middleName;
+    }
 
-    public String getLastName() {return lastName;}
+    public String getLastName() {
+        return lastName;
+    }
 
     @Override
     public boolean equals(Object o) {
