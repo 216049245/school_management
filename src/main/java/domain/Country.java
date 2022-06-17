@@ -45,7 +45,7 @@ public class Country {
             return this;
         }
 
-        public Country build(){return new Country(this);}
+        public Country builder(){return new Country(this);}
     }
 
     @Override
