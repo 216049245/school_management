@@ -11,11 +11,13 @@ import domain.Country;
 public class CityFactory {
 
     public static City createCityFactory(String id, String name, Country country) {
+        if(id == null )
+            throw new IllegalArgumentException("A city id is required!");
+        if(name == null)
+            throw new IllegalArgumentException("The name of the city is required!");
 
-        City city =  new City.Builder().id(id)
-                .name(name)
-                .country(country)
-                .build();
-        return city;
+
+        return new City.Builder().id(id).name(name).country(country).build();
+
     }
 }

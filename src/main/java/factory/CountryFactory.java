@@ -9,11 +9,14 @@ import domain.Country;
 
 public class CountryFactory {
 
-    public static Country createCountry(String id, String name) {
+    public static Country createCountryFactory(String id, String name) {
+        if(id.isEmpty() || id ==null)
+            throw new IllegalArgumentException("Country id is required!");
+        if(name.isEmpty() || name ==null)
+            throw new IllegalArgumentException("The name of the country is required!");
 
-        Country country =  new Country.Builder().id(id)
-                .name(name)
-                .build();
-        return country;
+        return new Country.Builder().id(id).name(name).builder();
+
     }
+
 }
