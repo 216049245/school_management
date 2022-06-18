@@ -13,5 +13,5 @@ import java.util.List;
 public interface IStudentService extends IService<Student, String> {
     List<Student> findAll();
     void delete(Student student);
-
+    void deleteById(String studentId);
 }
