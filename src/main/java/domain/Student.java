@@ -5,10 +5,13 @@ Date: 18 June 2022
 */
 package domain;
 
+import lombok.AllArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@AllArgsConstructor
 @Entity
 @Table(name = "Students")
 public class Student {
@@ -18,7 +21,7 @@ public class Student {
     @Column(name = "studentId")
     private String studentId;
 
-    @NotNull
+
     @Column(name = "studentEmal")
     private String email;
 
