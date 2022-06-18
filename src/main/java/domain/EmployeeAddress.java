@@ -7,11 +7,38 @@
 package domain;
 
 import java.util.Objects;
+import domain.Address;
+import lombok.AllArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+//@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="EmployeeAddress")
+@Entity
+
+/*@OneToOne(mappedBy = "staffId", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Address address;
+* */
+
 
 public class EmployeeAddress{
     //globals;
-    private final String staffID;
-    private final String address; //change to address when you are able to. EVERYWHERE
+    @Id
+    @NotNull
+    @Column(name = "staffId")
+    private String staffID;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name="staffId")
+    private Employee employee;
+
+
+    @Embedded
+    private Address address; //change to address when you are able to. EVERYWHERE
 
 
     private EmployeeAddress(Builder builder)
@@ -21,12 +48,12 @@ public class EmployeeAddress{
     }
 
     public String getStaffID(){return staffID;}
-    public String getAddress(){return address;}
+    public Address getAddress(){return address;}
 
     public static class Builder
     {
         private String staffId;
-        private String address;
+        private Address address;
 
         public Builder staffId(String staffId)
         {
@@ -34,7 +61,7 @@ public class EmployeeAddress{
             return this;
         }
 
-        public Builder address(String address)
+        public Builder address(Address address)
         {
             this.address = address;
             return this;
