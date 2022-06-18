@@ -7,6 +7,7 @@ Date: 18 June 2022
 package service;
 
 import domain.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.IStudentRepository;
 
@@ -17,10 +18,10 @@ import java.util.Optional;
 public class StudentService implements IStudentService{
 
 
-    //Implement singleton
     private final IStudentRepository repository;
-    private static StudentService SERVICE;
+    //private static StudentService SERVICE;
 
+    @Autowired
     public StudentService(IStudentRepository repository) {
         this.repository = repository;
     }
@@ -39,6 +40,12 @@ public class StudentService implements IStudentService{
     @Override
     public void delete(Student student) {
         this.repository.delete(student);
+    }
+
+    @Override
+    public void deleteById(String studentId) {
+        Optional<Student> student = read(studentId);
+        if (student.isPresent()) delete(student.get());
     }
 
 
