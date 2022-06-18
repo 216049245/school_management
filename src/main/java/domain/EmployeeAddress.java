@@ -34,13 +34,13 @@ public class EmployeeAddress{
     @OneToOne
     @MapsId
     @JoinColumn(name="staffId")
-    private Employee employee;
-
 
     @Embedded
     @Column(name = "Address")
     private Address address; //change to address when you are able to. EVERYWHERE
 
+    protected EmployeeAddress() {
+    }
 
     private EmployeeAddress(Builder builder)
     {

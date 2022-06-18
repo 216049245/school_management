@@ -1,8 +1,9 @@
-package service;
+package service.Impl;
 
 import domain.Name;
 import repository.NameRepository;
 import repository.NameRepositoryImpl;
+import service.NameService;
 
 import java.util.HashSet;
 import java.util.Optional;
