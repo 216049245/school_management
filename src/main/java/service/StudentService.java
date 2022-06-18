@@ -31,27 +31,37 @@ public class StudentService implements IStudentService{
         return this.repository.save(student);
     }
 
-    //Changed .read(s) to .findById(s)
-    @Override
+    //@Override
     public Optional<Student> read(String s) {
-        return this.repository.findById(s);
+        return Optional.empty();
     }
+
+    //Changed .read(s) to .findById(s)
+    //@Override
+    //public Optional<Student> read(Student.StudentId studentId) {
+        //return this.repository.findById(studentId);
+    //}
 
     @Override
     public void delete(Student student) {
         this.repository.delete(student);
     }
 
-    @Override
+    //@Override
     public void deleteById(String studentId) {
         Optional<Student> student = read(studentId);
         if (student.isPresent()) delete(student.get());
     }
 
+    //@Override
+    public List<Student> findByStudentId(String studentId){
+        return this.repository.findByStudentId(studentId);
+    }
+
 
     @Override
     public List<Student> findAll() {
-        return null;
+        return this.repository.findAll();
     }
 
 }
