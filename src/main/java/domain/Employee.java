@@ -7,53 +7,66 @@ Edited 18 June 2022
 
 package domain;
 
-import lombok.AllArgsConstructor;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
-
-@AllArgsConstructor
-@Table(name="Employee")
 @Entity
-public class Employee {
+public class Employee implements Serializable {
 
     @Id
-    @NotNull
-    @Column(name="staffId")
-    private String staffID;
-    @Column(name="email")
+    private String staffId;
+
     private String email;
 
     @Embedded
-    @Column(name="EmpName")
     private Name name;
 
-    protected Employee(){}
-    //@OneToOne(mappedBy = "EmpAddress", cascade = CascadeType.ALL) //
-    //@PrimaryKeyJoinColumn //private EmployeeAddressAddress employeeAddressAddress;
+    protected Employee(){
 
+    }
 
-    //Builder Class
     private Employee(Builder builder){
-        this.staffID = builder.staffID;
+        this.staffId = builder.staffId;
         this.email = builder.email;
         this.name = builder.name;
     }
 
-// Getters
-    public String getStaffID() {return staffID; }
+    public String getStaffId() {return staffId;}
 
-    public String getEmail() {return email; }
+    public String getEmail() {return email;}
 
-    public Name getName() {return name; }
+    public Name getName() {return name;}
 
-    public static class Builder {
-        private String staffID, email;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "staffId='" + staffId + '\'' +
+                ", email='" + email + '\'' +
+                ", name=" + name +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return staffId.equals(employee.staffId) && email.equals(employee.email) && name.equals(employee.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(staffId, email, name);
+    }
+
+    public static class Builder{
+        private String staffId, email;
         private Name name;
 
-        public Builder staffID(String staffID){
-            this.staffID = staffID;
+        public Builder staffId(String staffId){
+            this.staffId = staffId;
             return this;
         }
 
@@ -62,41 +75,16 @@ public class Employee {
             return this;
         }
 
-        public Builder name(Name name) {
+        public Builder name(Name name){
             this.name = name;
             return this;
         }
-        public Builder copy (Employee employee) {
-            this.staffID = employee.staffID;
-            this.email = employee.email;
-            this.name = employee.name;
-            return this;
+
+        public Employee build(){
+            return new Employee(this);
         }
-        public Employee build() { return new Employee(this);}
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return staffID.equals(employee.staffID);
-    }
-    @Override
-    public int hashCode() { return Objects.hash(staffID); }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "staffID='" + staffID + '\'' +
-                ", email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
-
-
-
-    }
+}
 
 
 

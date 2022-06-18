@@ -15,7 +15,7 @@ public interface IStudentAddressService extends IService<StudentAddress, String>
     StudentAddress save(StudentAddress studentAddress);
 
     List<StudentAddress> findAll();
-    void delete(StudentAddress studentAddress);
+    //void delete(StudentAddress studentAddress);
     void deleteById(String studentId);
 }
 
