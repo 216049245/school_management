@@ -17,7 +17,6 @@ import javax.validation.constraints.NotNull;
 public class City {
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  String cityId;
 
     @Column(name="cityName")

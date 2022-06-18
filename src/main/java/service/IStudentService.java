@@ -10,8 +10,8 @@ import domain.Student;
 
 import java.util.List;
 
-public interface IStudentService extends IService<Student, String> {
+public interface IStudentService extends IService<Student, Student> {
     List<Student> findAll();
-    void delete(Student student);
-    void deleteById(String studentId);
+    void deleteById(String id);
+
 }

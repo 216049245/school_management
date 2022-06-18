@@ -5,13 +5,15 @@ Date: 18 June 2022
 */
 package domain;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Student {
+public class Student implements Serializable {
 
     @NotNull
     @Id
@@ -20,21 +22,11 @@ public class Student {
     @NotNull
     private String email;
 
-    @NotNull
+    @Embedded
     private Name name;
-
-    /*
-     * private Name name;
-     * Need Sipiwe to finish the Name.java entity
-     * in order to inherit
-     * the "Name" attributes
-     */
 
     //changed from private to protected
     protected Student() {}
-
-
-
 
     //Builder Class
     private Student(Builder builder) {
@@ -61,8 +53,7 @@ public class Student {
     //Builder static Class
     public static class Builder {
 
-        private String
-                studentId;
+        private String studentId;
         private Name name;
         private String email;
 
@@ -78,6 +69,13 @@ public class Student {
 
         public Builder email(String email) {
             this.email = email;
+            return this;
+        }
+
+        public Builder copy(Student student){
+            this.studentId = student.studentId;
+            this.email = student.email;
+            this.name = student.name;
             return this;
         }
 

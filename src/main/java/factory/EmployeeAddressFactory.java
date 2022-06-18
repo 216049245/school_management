@@ -5,13 +5,14 @@
  */
 package factory;
 
+import domain.Address;
 import domain.EmployeeAddress;
 import service.StringHelper;
 
 public class EmployeeAddressFactory
 {
 
-    public static EmployeeAddress build(String staffId, String address)
+    public static EmployeeAddress build(String staffId, Address address)
     {
         StringHelper.checkStringParam("staffId",staffId);
         if( address == null)
