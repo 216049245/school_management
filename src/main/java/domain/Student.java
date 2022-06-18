@@ -1,7 +1,7 @@
 /*
 Student.java
 Author: Monehi Tuoane (219350744)
-Date: 15 June 2022
+Date: 18 June 2022
 */
 package domain;
 
@@ -11,8 +11,9 @@ public class Student {
 
     private final String
             studentId,
-            email,
-            name;
+            email;
+
+    private Name name;
 
     /*
      * private Name name;
@@ -42,7 +43,7 @@ public class Student {
         return email;
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
@@ -50,16 +51,16 @@ public class Student {
     public static class Builder {
 
         private String
-                studentId,
-                name,
-                email;
+                studentId;
+        private Name name;
+        private String email;
 
         public Builder studentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder name(String name) {
+        public Builder name(Name name) {
             this.name = name;
             return this;
         }
