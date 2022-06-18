@@ -13,17 +13,14 @@ import lombok.AllArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-//@NoArgsConstructor
-@AllArgsConstructor
-@Table(name="EmployeeAddress")
-@Entity
-
 /*@OneToOne(mappedBy = "staffId", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Address address;
 * */
-
-
+//@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="EmployeeAddress")
+@Entity
 
 public class EmployeeAddress{
     //globals;

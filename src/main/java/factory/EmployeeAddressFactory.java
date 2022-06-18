@@ -7,14 +7,13 @@ package factory;
 
 import domain.Address;
 import domain.EmployeeAddress;
-import service.StringHelper;
 
 public class EmployeeAddressFactory
 {
 
     public static EmployeeAddress build(String staffId, Address address)
     {
-        StringHelper.checkStringParam("staffId",staffId);
+        //StringHelper.checkStringParam("staffId",staffId);
         if( address == null)
             //tell the user that they must provide an address
             throw new IllegalArgumentException("Address is required!");

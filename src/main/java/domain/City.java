@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-//@NoArgsConstructor
+
 @AllArgsConstructor
 @Table(name="city")
 @Entity

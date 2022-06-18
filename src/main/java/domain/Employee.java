@@ -9,10 +9,7 @@ package domain;
 
 import lombok.AllArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -27,6 +24,7 @@ public class Employee {
     private String staffID;
     @Column(name="email")
     private String email;
+
     @Embedded
     @Column(name="EmpName")
     private Name name;

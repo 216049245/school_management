@@ -8,7 +8,6 @@ package factory;
 
 import domain.Name;
 import domain.Student;
-import service.StringHelper;
 
 public class StudentFactory {
 
@@ -24,8 +23,8 @@ public class StudentFactory {
             throw new IllegalArgumentException("Student name is required!");
         */
 
-        StringHelper.checkStringParam("studentId", studentId);
-        StringHelper.checkStringParam("email", email);
+        helper.GenericHelper.checkStringParam("studentId", studentId);
+        helper.GenericHelper.checkStringParam("email", email);
         //StringHelper.checkEmailValidation(email);
         //StringHelper.checkId(studentId);
 
