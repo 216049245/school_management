@@ -1,5 +1,5 @@
 /*
- *   Entity: EmployeeAddress.java
+ *   Entity: EmployeeAddressRepository.java
  *   Author: Jesse Merold Hiebner
  *   Date: 14/06/2022
  */

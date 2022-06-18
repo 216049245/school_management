@@ -1,5 +1,5 @@
 /*
- *   Entity: EmployeeAddress.java
+ *   Entity: EmployeeAddressRepository.java
  *   Author: Jesse Merold Hiebner
  *   Date: 14/06/2022
  */
@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 
 //@NoArgsConstructor
 @AllArgsConstructor
-@Table(name="EmployeeAddress")
+@Table(name = "EmployeeAddress")
 @Entity
 
 /*@OneToOne(mappedBy = "staffId", cascade = CascadeType.ALL)
@@ -38,6 +38,7 @@ public class EmployeeAddress{
 
 
     @Embedded
+    @Column(name = "Address")
     private Address address; //change to address when you are able to. EVERYWHERE
 
 
@@ -49,6 +50,7 @@ public class EmployeeAddress{
 
     public String getStaffID(){return staffID;}
     public Address getAddress(){return address;}
+
 
     public static class Builder
     {
@@ -118,7 +120,7 @@ public class EmployeeAddress{
 
     @Override
     public String toString() {
-        return "EmployeeAddress{" +
+        return "EmployeeAddressRepository{" +
                 "staffID='" + staffID + '\'' +
                 ", address='" + address + '\'' +
                 '}';
