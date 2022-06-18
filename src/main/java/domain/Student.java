@@ -21,7 +21,6 @@ public class Student {
     @Column(name = "studentId")
     private String studentId;
 
-
     @Column(name = "studentEmal")
     private String email;
 

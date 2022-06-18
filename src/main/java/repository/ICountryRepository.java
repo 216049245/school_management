@@ -1,14 +1,13 @@
-/* CityRepository.java
+/* ICountryRepository.java
    Author: Guy De La Cruz (218336969)
    Date: 11/04/2022
    */
 package repository;
 
-import domain.City;
+import domain.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CityRepository extends JpaRepository<City, String> {
-
+public interface ICountryRepository extends JpaRepository<Country, String> {
 }
