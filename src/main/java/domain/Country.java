@@ -3,22 +3,35 @@
    Date: 11/04/2022
    */
 package domain;
-//@Entity
-//@Table(name="Country")
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Set;
+
+@Entity
+@Table(name="country")
 public class Country {
 
-    private final String id;
-    private final String name;
-    //private final set<City> city;
+    @Id @NotNull @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  String countryId;
+
+    @Column(name="countryName")
+    private  String name;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<City> city;
+
+
+    private Country(){}
 
     private Country(Builder builder){
-        this.id = builder.id;
+        this.countryId = builder.countryId;
         this.name = builder.name;
 
     }
 
     public String getId() {
-        return id;
+        return countryId;
     }
 
     public String getName() {
@@ -26,11 +39,11 @@ public class Country {
     }
     
     public static class Builder{
-        private String id;
+        private String countryId;
         private String name;
 
-        public Builder id(String id){
-            this.id = id;
+        public Builder countryId(String id){
+            this.countryId = countryId;
             return this;
         }
 
@@ -40,7 +53,7 @@ public class Country {
         }
 
         public Builder copy(Country country){
-            this.id = country.id;
+            this.countryId = country.countryId;
             this.name = country.name;
             return this;
         }
@@ -51,7 +64,7 @@ public class Country {
     @Override
     public String toString() {
         return "Country{" +
-                "id='" + id + '\'' +
+                "id='" + countryId + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
