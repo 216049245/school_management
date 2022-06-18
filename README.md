@@ -41,3 +41,7 @@ Domain problem: Education
 Finally, discuss with your team the improvements that you could make to this solution, and
 possibly some obvious flaws in both the (uml domain) design and implementation of the system.
 Note these in the “Readme.md” of your project.
+
+Answer:
+
+https://github.com/216049245/school_management/discussions/26
