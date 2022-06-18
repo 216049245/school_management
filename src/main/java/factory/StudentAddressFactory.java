@@ -1,24 +1,25 @@
 /*
 StudentAddressFactory.java
 Author: Monehi Tuoane (219350744)
-Date: 17 June 2022
+Date: 18 June 2022
 */
 
 package factory;
 
+import domain.Address;
 import domain.StudentAddress;
 
 public class StudentAddressFactory {
 
 
-    public static StudentAddress build(String studentId, String address) {
+    public static StudentAddress build(String studentId, Address address) {
 
         //Inform caller of the missing studentId
         if (studentId == null || studentId.isEmpty())
             throw new IllegalArgumentException("Student ID is required!");
 
         //Inform caller of the missing email
-        if (address == null || address.isEmpty())
+        if (address == null )
             throw new IllegalArgumentException("Student address is required!");
 
 

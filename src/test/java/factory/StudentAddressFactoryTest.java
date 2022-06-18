@@ -1,12 +1,15 @@
 /*
 StudentAddressFactoryTest.java
 Author: Monehi Tuoane (219350744)
-Date: 17 June 2022
+Date: 18 June 2022
 */
 
 package factory;
 
 
+import domain.Address;
+import domain.City;
+import domain.Country;
 import domain.StudentAddress;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +20,11 @@ class StudentAddressFactoryTest {
 
     @Test
     public  void buildWithoutError() {
+        Country country = CountryFactory.createCountryFactory("567", "England");
+        City city = CityFactory.createCityFactory("465", "Liverpool", country);
+        Address address = AddressFactory.createAddress("17","TownHouse","34","Blackpool", 7946, city);
 
-        StudentAddress studentAddress = StudentAddressFactory.build("123456789", "Cape Town");
+        StudentAddress studentAddress = StudentAddressFactory.build("123456789", address );
         System.out.println(studentAddress);
         assertNotNull(studentAddress);
 
@@ -26,9 +32,12 @@ class StudentAddressFactoryTest {
 
     @Test
     public void buildWithError() {
+        Country country = CountryFactory.createCountryFactory("567", "England");
+        City city = CityFactory.createCityFactory("465", "Liverpool", country);
+        Address address = AddressFactory.createAddress("17","TownHouse","34","Blackpool", 7946, city);
 
         Exception exception =  assertThrows(IllegalArgumentException.class, () ->
-                StudentAddressFactory.build(null, "Cape Town"));
+                StudentAddressFactory.build(null, address));
 
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
