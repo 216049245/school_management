@@ -11,6 +11,7 @@ import domain.Student;
 import factory.NameFactory;
 import factory.StudentFactory;
 import org.junit.jupiter.api.Order;
+import org.springframework.beans.factory.annotation.Autowired;
 import service.Impl.StudentService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ class StudentServiceTest {
     private final Student student = StudentFactory.build("101010", "test@gmail.com", name);
     //public Student.StudentId studentId = StudentFactory.buildId(this.student);
 
-    //@Autowired
+    @Autowired
     private StudentService service;
 
     @Order(1)
