@@ -8,6 +8,7 @@ package factory;
 
 import domain.Address;
 import domain.StudentAddress;
+import service.StringHelper;
 
 public class StudentAddressFactory {
 
@@ -22,6 +23,8 @@ public class StudentAddressFactory {
         if (address == null )
             throw new IllegalArgumentException("Student address is required!");
 
+        StringHelper.checkStringParam("studentId", studentId);
+        //StringHelper.checkId(studentId);
 
         return new StudentAddress.Builder().studentId(studentId)
                 .address(address)

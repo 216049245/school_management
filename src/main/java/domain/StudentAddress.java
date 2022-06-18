@@ -6,9 +6,11 @@ Date: 18 June 2022
 
 package domain;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Entity
 public class StudentAddress {
@@ -17,15 +19,8 @@ public class StudentAddress {
     @Id
     private String studentId;
 
-    @NotNull
+    @Embedded
     private  Address address;
-
-    /*
-     * private Address address;
-     * Need Lutho to finish the Address.java entity
-     * in order to inherit
-     * the "Address" attributes
-     */
 
     //changed from private to protected
     protected StudentAddress() {}
@@ -63,9 +58,27 @@ public class StudentAddress {
             return this;
         }
 
+        public StudentAddress.Builder copy(StudentAddress studentAddress){
+            this.studentId = studentAddress.studentId;
+            this.address = studentAddress.address;
+            return this;
+        }
+
         public StudentAddress build() {
             return new StudentAddress(this);
         }
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        StudentAddress that = (StudentAddress) obj;
+        return studentId.equals(that.studentId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId);
     }
 
     @Override
