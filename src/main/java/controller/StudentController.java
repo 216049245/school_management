@@ -6,6 +6,7 @@ Date: 18 June 2022
 
 package controller;
 
+import API.StudentAPI;
 import domain.Name;
 import domain.Student;
 import factory.NameFactory;
@@ -25,11 +26,14 @@ import java.util.List;
 @Slf4j
 public class StudentController {
 
+    //API
+    private final StudentAPI studentAPI;
     private final IStudentService istudentService;
 
 
     @Autowired
-    public StudentController(IStudentService iStudentService ) {
+    public StudentController(IStudentService iStudentService, StudentAPI studentAPI ) {
+        this.studentAPI = studentAPI;
         this.istudentService = iStudentService;
     }
 
