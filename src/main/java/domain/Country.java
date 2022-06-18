@@ -4,15 +4,18 @@
    */
 package domain;
 
+
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
+
 
 @Entity
 @Table(name="country")
 public class Country {
 
-    @Id @NotNull @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @NotNull
     private  String countryId;
 
     @Column(name="countryName")
@@ -20,7 +23,6 @@ public class Country {
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<City> city;
-
 
     private Country(){}
 
