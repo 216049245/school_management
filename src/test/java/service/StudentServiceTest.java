@@ -37,11 +37,11 @@ class StudentServiceTest {
     @Order(1)
     @Test
     void save() {
-        Student saved = this.service.save(this.student);
+        Student saved = this.service.save(this.student.getStudentId());
         System.out.println(saved);
         assertAll(
                 () -> assertNotNull(saved),
-                () -> assertEquals(this.student,saved)
+                () -> assertEquals(this.student.getStudentId(),saved)
         );
     }
 
@@ -52,7 +52,7 @@ class StudentServiceTest {
         System.out.println(read);
         assertAll(
                 () -> assertTrue(read.isPresent()),
-                () -> assertEquals(this.student, read.get())
+                () -> assertEquals(this.student.getStudentId(), read.get())
         );
     }
 
@@ -69,7 +69,7 @@ class StudentServiceTest {
     @Order(4)
     @Test
     void delete() {
-        this.service.delete(this.student);
+        this.service.delete(this.student.getStudentId());
         List<Student> studentList = this.service.findAll();
         assertEquals(0, studentList.size());
 
