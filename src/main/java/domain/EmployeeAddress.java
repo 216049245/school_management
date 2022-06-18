@@ -48,6 +48,11 @@ public class EmployeeAddress{
         this.address = builder.address;
     }
 
+    public static boolean isPresent() {
+
+        return false;
+    }
+
     public String getStaffID(){return staffID;}
     public Address getAddress(){return address;}
 
