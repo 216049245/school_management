@@ -1,11 +1,24 @@
+/*
+StudentAddress.java
+Author: Monehi Tuoane (219350744)
+Date: 18 June 2022
+*/
 
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+@Entity
 public class StudentAddress {
 
-    private final String studentId;
-    private  String address;
+    @NotNull
+    @Id
+    private String studentId;
+
+    @NotNull
+    private  Address address;
 
     /*
      * private Address address;
@@ -13,6 +26,9 @@ public class StudentAddress {
      * in order to inherit
      * the "Address" attributes
      */
+
+    //changed from private to protected
+    protected StudentAddress() {}
 
     //Builder
     private StudentAddress(Builder builder) {
@@ -27,7 +43,7 @@ public class StudentAddress {
         return studentId;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -35,14 +51,14 @@ public class StudentAddress {
     public static class Builder {
 
         private String studentId;
-        private  String address;
+        private  Address address;
 
         public Builder studentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder address(String address) {
+        public Builder address(Address address) {
             this.address = address;
             return this;
         }

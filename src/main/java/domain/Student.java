@@ -1,18 +1,27 @@
 /*
 Student.java
 Author: Monehi Tuoane (219350744)
-Date: 15 June 2022
+Date: 18 June 2022
 */
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@Entity
 public class Student {
 
-    private final String
-            studentId,
-            email,
-            name;
+    @NotNull
+    @Id
+    private String studentId;
+
+    @NotNull
+    private String email;
+
+    @NotNull
+    private Name name;
 
     /*
      * private Name name;
@@ -20,6 +29,9 @@ public class Student {
      * in order to inherit
      * the "Name" attributes
      */
+
+    //changed from private to protected
+    protected Student() {}
 
 
 
@@ -42,7 +54,7 @@ public class Student {
         return email;
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
@@ -50,16 +62,16 @@ public class Student {
     public static class Builder {
 
         private String
-                studentId,
-                name,
-                email;
+                studentId;
+        private Name name;
+        private String email;
 
         public Builder studentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder name(String name) {
+        public Builder name(Name name) {
             this.name = name;
             return this;
         }
