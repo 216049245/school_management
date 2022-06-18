@@ -1,3 +1,9 @@
+/*
+StudentService.java
+Author: Monehi Tuoane (219350744)
+Date: 18 June 2022
+*/
+
 package service;
 
 import domain.Student;
@@ -17,19 +23,6 @@ public class StudentService implements IStudentService{
     public StudentService(IStudentRepository repository) {
         this.repository = repository;
     }
-
-    /*
-    private StudentService () {
-        this.repository = StudentRepository.studentRepository();
-    }
-
-    public static StudentService getService() {
-        if (SERVICE == null)
-            SERVICE = new StudentService();
-        return SERVICE;
-    }
-
-     */
 
     @Override
     public Student save(Student student) {
