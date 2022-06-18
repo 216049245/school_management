@@ -8,6 +8,7 @@ package domain;
 
 import java.util.Objects;
 
+
 public class EmployeeAddress{
     //globals;
     private final String staffID;

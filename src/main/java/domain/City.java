@@ -5,7 +5,6 @@
 package domain;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,6 +16,7 @@ import javax.validation.constraints.NotNull;
 public class City {
     @Id
     @NotNull
+    @Column(name="cityId")
     private  String cityId;
 
     @Column(name="cityName")
@@ -29,7 +29,7 @@ public class City {
     @JoinColumn(name="countryId")
     Country countryObject;
 
-    private City(){}
+    protected City(){}
 
     private City(Builder builder){
         this.cityId = builder.cityId;

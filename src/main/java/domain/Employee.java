@@ -6,14 +6,36 @@ Date: 15 June 2022
 
 package domain;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+
+@AllArgsConstructor
+@Table(name="Employee")
+@Entity
 public class Employee {
 
-    private final String
-            staffID,
-            email,
-            name;
+    @Id
+    @NotNull
+    @Column(name="staffId")
+    private String staffID;
+
+    @Column(name="email")
+    private String email;
+
+    @Embedded
+    @Column(name="EmpName")
+    private Name name;
+
+    protected Employee(){}
+
+   //@OneToOne(mappedBy = "EmpAddress", cascade = CascadeType.ALL)
+    //@PrimaryKeyJoinColumn
+    //private EmployeeAddressAddress employeeAddressAddress;
 
     //Builder Class
     private Employee(Builder builder){
@@ -27,10 +49,11 @@ public class Employee {
 
     public String getEmail() {return email; }
 
-    public String getName() {return name; }
+    public Name getName() {return name; }
 
     public static class Builder {
-        private String staffID, email, name;
+        private String staffID, email;
+        private Name name;
 
         public Builder staffID(String staffID){
             this.staffID = staffID;
@@ -42,7 +65,7 @@ public class Employee {
             return this;
         }
 
-        public Builder name(String name) {
+        public Builder name(Name name) {
             this.name = name;
             return this;
         }
