@@ -46,14 +46,11 @@ public class StudentAddressService implements IStudentAddressService{
     }
 
     @Override
-    public void delete(StudentAddress studentAddress) {
-
-    }
-
-    @Override
     public void deleteById(String studentId) {
 
     }
+
+
 /*
     @Override
     public StudentAddress save(StudentAddress studentAddress) {

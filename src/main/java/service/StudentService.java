@@ -25,7 +25,34 @@ public class StudentService implements IStudentService {
         this.repository = repository;
     }
 
+    @Override
+    public Student create(Student student) {
+        return null;
+    }
 
+    @Override
+    public Student findById(String s) {
+        return null;
+    }
+
+    @Override
+    public void delete(String s) {
+
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return null;
+    }
+
+    @Override
+    public void deleteById(String id) {
+
+    }
+
+
+
+/*
     public Student save(Student studentId) {
         return this.repository.save(studentId);
     }
@@ -51,27 +78,7 @@ public class StudentService implements IStudentService {
         if (student.isPresent()) delete(student.get());
     }
 
+ */
 
-
-
-    @Override
-    public Student create(Student student) {
-        return null;
-    }
-
-    @Override
-    public List<Student> findAll() {
-        return null;
-    }
-
-    @Override
-    public Student findById(String s) {
-        return null;
-    }
-
-    @Override
-    public void delete(String s) {
-
-    }
 
 }
