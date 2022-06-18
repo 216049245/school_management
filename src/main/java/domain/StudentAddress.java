@@ -6,31 +6,33 @@ Date: 18 June 2022
 
 package domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
+@AllArgsConstructor
+@Table(name = "StudentAddress")
 @Entity
 public class StudentAddress {
 
-    @NotNull
     @Id
+    @NotNull
+    @Column(name = "studentId")
     private String studentId;
 
-    @NotNull
-    private  Address address;
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "studentId")
+    private  Student student;
 
-    /*
-     * private Address address;
-     * Need Lutho to finish the Address.java entity
-     * in order to inherit
-     * the "Address" attributes
-     */
+    @Embedded
+    @Column(name = "Address")
+    private  Address address;
 
     //changed from private to protected
     protected StudentAddress() {}
 
-    //Builder
     private StudentAddress(Builder builder) {
 
         this.studentId = builder.studentId;
@@ -63,9 +65,27 @@ public class StudentAddress {
             return this;
         }
 
+        public StudentAddress.Builder copy(StudentAddress studentAddress){
+            this.studentId = studentAddress.studentId;
+            this.address = studentAddress.address;
+            return this;
+        }
+
         public StudentAddress build() {
             return new StudentAddress(this);
         }
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        StudentAddress that = (StudentAddress) obj;
+        return studentId.equals(that.studentId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId);
     }
 
     @Override
