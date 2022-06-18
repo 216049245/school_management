@@ -18,9 +18,8 @@ import java.util.Optional;
 @Service
 public class StudentAddressService implements IStudentAddressService{
 
-    //Implement singleton
     private final IStudentAddressRepository repository;
-    private static StudentAddressService SERVICE;
+
 
     public StudentAddressService(IStudentAddressRepository repository) {
         this.repository = repository;
@@ -39,7 +38,7 @@ public class StudentAddressService implements IStudentAddressService{
 
     @Override
     public List<StudentAddress> findAll() {
-        return null;
+        return this.repository.findAll();
     }
 
     @Override
