@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentService implements IStudentService{
+public class StudentService implements IStudentService {
 
 
     private final IStudentRepository repository;
@@ -31,37 +31,31 @@ public class StudentService implements IStudentService{
         return this.repository.save(student);
     }
 
-    //@Override
-    public Optional<Student> read(String s) {
+    @Override
+    public Optional<Student> read(Student student) {
         return Optional.empty();
     }
 
     //Changed .read(s) to .findById(s)
     //@Override
-    //public Optional<Student> read(Student.StudentId studentId) {
-        //return this.repository.findById(studentId);
-    //}
+    public Optional<Student> read(String s) {
+        return this.repository.findById(s);
+    }
 
     @Override
     public void delete(Student student) {
         this.repository.delete(student);
     }
 
-    //@Override
+    @Override
     public void deleteById(String studentId) {
         Optional<Student> student = read(studentId);
         if (student.isPresent()) delete(student.get());
     }
 
-    //@Override
-    public List<Student> findByStudentId(String studentId){
-        return this.repository.findByStudentId(studentId);
-    }
-
 
     @Override
     public List<Student> findAll() {
-        return this.repository.findAll();
+        return null;
     }
-
 }

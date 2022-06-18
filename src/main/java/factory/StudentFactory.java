@@ -21,20 +21,13 @@ public class StudentFactory {
             throw new IllegalArgumentException("Student email is required!");
 
         //Inform caller of the missing name
-        if (name == null)
+        if (name == null )
             throw new IllegalArgumentException("Student name is required!");
 
         return new Student.Builder().studentId(studentId)
                 .name(name)
                 .email(email)
                 .build();
-
     }
 }
-
-
-    //For Service Test
-
-
-    //Email validation
 

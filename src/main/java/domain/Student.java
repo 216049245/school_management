@@ -7,13 +7,10 @@ package domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-//@IdClass(Student.StudentId.class)
 public class Student {
 
     @NotNull
@@ -34,8 +31,10 @@ public class Student {
      */
 
     //changed from private to protected
-    protected Student() {
-    }
+    protected Student() {}
+
+
+
 
     //Builder Class
     private Student(Builder builder) {
@@ -62,7 +61,8 @@ public class Student {
     //Builder static Class
     public static class Builder {
 
-        private String studentId;
+        private String
+                studentId;
         private Name name;
         private String email;
 
@@ -81,57 +81,32 @@ public class Student {
             return this;
         }
 
-        public Builder copy(Student student) {
-            this.studentId = student.studentId;
-            this.name = student.name;
-            this.email = student.email;
-            return this;
-        }
-
 
         public Student build() {
             return new Student(this);
         }
+    }
 
 
-        //For Service test
-        public static class StudentId implements Serializable {
-            public String studentId;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student that = (Student) obj;
+        return studentId.equals(that.studentId);
+    }
 
-            public StudentId(String studentId) {
-                this.studentId = studentId;
-            }
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId);
+    }
 
-            protected StudentId() {
-            }
-
-            public String getStudentId() {
-                return studentId;
-            }
-
-        }
-
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) return true;
-            if (obj == null || getClass() != obj.getClass()) return false;
-            Student that = (Student) obj;
-            return studentId.equals(that.studentId);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(studentId);
-        }
-
-        @Override
-        public String toString() {
-            return "Student{" +
-                    "studentId='" + studentId + '\'' +
-                    ", email='" + email + '\'' +
-                    ", name='" + name + '\'' +
-                    '}';
-        }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
