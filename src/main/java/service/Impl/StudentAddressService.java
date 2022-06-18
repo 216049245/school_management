@@ -42,10 +42,6 @@ public class StudentAddressService implements IStudentAddressService {
         return null;
     }
 
-    @Override
-    public void deleteById(String studentId) {
-
-    }
 
     @Override
     public Optional<StudentAddress> read(String s) {
@@ -53,7 +49,9 @@ public class StudentAddressService implements IStudentAddressService {
     }
 
     @Override
-    public void delete(String studentId) {
+    public void deleteById(String studentId) {
+
+        repository.deleteById(studentId);
 
     }
 

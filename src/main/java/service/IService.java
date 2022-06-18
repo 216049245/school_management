@@ -1,7 +1,5 @@
 package service;
 
-import domain.Student;
-
 import java.util.*;
 
 
@@ -10,6 +8,6 @@ public interface IService <T, ID> {
     List<T> findAll();
     Optional<T> read(ID id);
     T findById(ID id);
-    void delete(ID id);
+    void deleteById(ID id);
 
 }
