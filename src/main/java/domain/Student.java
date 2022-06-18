@@ -5,30 +5,33 @@ Date: 18 June 2022
 */
 package domain;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Objects;
 
+@AllArgsConstructor
 @Entity
-public class Student implements Serializable {
+@Table(name = "Students")
+public class Student {
 
     @NotNull
     @Id
+    @Column(name = "studentId")
     private String studentId;
 
-    @NotNull
+
+    @Column(name = "studentEmal")
     private String email;
 
     @Embedded
+    @Column(name = "studentName")
     private Name name;
 
     //changed from private to protected
     protected Student() {}
 
-    //Builder Class
     private Student(Builder builder) {
 
         this.studentId = builder.studentId;
