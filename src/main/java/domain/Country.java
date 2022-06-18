@@ -4,8 +4,6 @@
    */
 package domain;
 
-
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
@@ -24,7 +22,7 @@ public class Country {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<City> city;
 
-    private Country(){}
+   protected Country(){}
 
     private Country(Builder builder){
         this.countryId = builder.countryId;

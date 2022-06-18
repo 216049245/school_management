@@ -5,7 +5,10 @@ package domain;
  * Due Date: 18 June 2022
  * ***Name*** entity
  */
+import javax.persistence.Embeddable;
 import java.util.Objects;
+
+@Embeddable
 public class Name {
 
     private String firstName, middleName, lastName;

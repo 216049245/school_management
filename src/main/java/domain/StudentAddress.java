@@ -6,26 +6,33 @@ Date: 18 June 2022
 
 package domain;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@AllArgsConstructor
+@Table(name = "StudentAddress")
 @Entity
 public class StudentAddress {
 
-    @NotNull
     @Id
+    @NotNull
+    @Column(name = "studentId")
     private String studentId;
 
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "studentId")
+    private  Student student;
+
     @Embedded
+    @Column(name = "Address")
     private  Address address;
 
     //changed from private to protected
     protected StudentAddress() {}
 
-    //Builder
     private StudentAddress(Builder builder) {
 
         this.studentId = builder.studentId;
