@@ -1,27 +1,27 @@
+/*
+StudentService.java
+Author: Monehi Tuoane (219350744)
+Date: 18 June 2022
+*/
+
 package service;
 
 import domain.Student;
-import repository.StudentRepository;
+import org.springframework.stereotype.Service;
+import repository.IStudentRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
+@Service
 public class StudentService implements IStudentService{
 
 
     //Implement singleton
-    private final StudentRepository repository;
+    private final IStudentRepository repository;
     private static StudentService SERVICE;
 
-    private StudentService () {
-        this.repository = StudentRepository.studentRepository();
-    }
-
-    public static StudentService getService() {
-        if (SERVICE == null)
-            SERVICE = new StudentService();
-        return SERVICE;
+    public StudentService(IStudentRepository repository) {
+        this.repository = repository;
     }
 
     @Override
@@ -29,9 +29,10 @@ public class StudentService implements IStudentService{
         return this.repository.save(student);
     }
 
+    //Changed .read(s) to .findById(s)
     @Override
     public Optional<Student> read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s);
     }
 
     @Override
