@@ -27,7 +27,7 @@ public class StudentAddressService implements IStudentAddressService {
     }
 
     @Override
-    public StudentAddress create(StudentAddress studentAddress) {
+    public StudentAddress save(StudentAddress studentAddress) {
         return null;
     }
 
@@ -36,10 +36,6 @@ public class StudentAddressService implements IStudentAddressService {
         return null;
     }
 
-    @Override
-    public void delete(String s) {
-
-    }
 
     @Override
     public List<StudentAddress> findAll() {
@@ -48,6 +44,16 @@ public class StudentAddressService implements IStudentAddressService {
 
     @Override
     public void deleteById(String studentId) {
+
+    }
+
+    @Override
+    public Optional<StudentAddress> read(String s) {
+        return Optional.empty();
+    }
+
+    @Override
+    public void delete(String studentId) {
 
     }
 
