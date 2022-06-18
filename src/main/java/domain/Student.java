@@ -5,14 +5,22 @@ Date: 18 June 2022
 */
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@Entity
 public class Student {
 
-    private final String
-            studentId,
-            email;
+    @NotNull
+    @Id
+    private String studentId;
 
+    @NotNull
+    private String email;
+
+    @NotNull
     private Name name;
 
     /*
@@ -21,6 +29,9 @@ public class Student {
      * in order to inherit
      * the "Name" attributes
      */
+
+    //changed from private to protected
+    protected Student() {}
 
 
 
