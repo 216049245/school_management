@@ -1,5 +1,8 @@
 package domain;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Address {
     String unitNumber, complexName, streetNumber, streetName;
     int postalCode;
