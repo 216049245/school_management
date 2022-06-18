@@ -8,6 +8,10 @@ package service;
 
 import domain.Student;
 
+import java.util.List;
+
 public interface IStudentService extends IService<Student, String> {
+    List<Student> findAll();
+    void delete(Student student);
 
 }

@@ -10,6 +10,7 @@ import domain.Student;
 import org.springframework.stereotype.Service;
 import repository.IStudentRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,4 +40,11 @@ public class StudentService implements IStudentService{
     public void delete(Student student) {
         this.repository.delete(student);
     }
+
+
+    @Override
+    public List<Student> findAll() {
+        return null;
+    }
+
 }
