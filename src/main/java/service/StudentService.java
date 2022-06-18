@@ -17,9 +17,8 @@ import java.util.Optional;
 @Service
 public class StudentService implements IStudentService {
 
-
     private final IStudentRepository repository;
-    //private static StudentService SERVICE;
+
 
     @Autowired
     public StudentService(IStudentRepository repository) {
@@ -31,7 +30,7 @@ public class StudentService implements IStudentService {
         return this.repository.save(student);
     }
 
-    @Override
+    //@Override
     public Optional<Student> read(Student student) {
         return Optional.empty();
     }
