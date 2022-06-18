@@ -6,10 +6,18 @@ Date: 18 June 2022
 
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+@Entity
 public class StudentAddress {
 
-    private final String studentId;
+    @NotNull
+    @Id
+    private String studentId;
+
+    @NotNull
     private  Address address;
 
     /*
@@ -18,6 +26,9 @@ public class StudentAddress {
      * in order to inherit
      * the "Address" attributes
      */
+
+    //changed from private to protected
+    protected StudentAddress() {}
 
     //Builder
     private StudentAddress(Builder builder) {
