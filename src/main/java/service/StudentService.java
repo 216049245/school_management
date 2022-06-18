@@ -25,23 +25,22 @@ public class StudentService implements IStudentService {
         this.repository = repository;
     }
 
-    @Override
-    public Student save(Student student) {
-        return this.repository.save(student);
+
+    public Student save(Student studentId) {
+        return this.repository.save(studentId);
     }
 
-    //@Override
+
     public Optional<Student> read(Student student) {
         return Optional.empty();
     }
 
-    //Changed .read(s) to .findById(s)
-    //@Override
-    public Optional<Student> read(String s) {
-        return this.repository.findById(s);
+
+    public Optional<Student> read(String studentId) {
+        return this.repository.findById(studentId);
     }
 
-    @Override
+    //@Override
     public void delete(Student student) {
         this.repository.delete(student);
     }
@@ -53,8 +52,26 @@ public class StudentService implements IStudentService {
     }
 
 
+
+
+    @Override
+    public Student create(Student student) {
+        return null;
+    }
+
     @Override
     public List<Student> findAll() {
         return null;
     }
+
+    @Override
+    public Student findById(String s) {
+        return null;
+    }
+
+    @Override
+    public void delete(String s) {
+
+    }
+
 }

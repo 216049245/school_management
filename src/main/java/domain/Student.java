@@ -40,7 +40,7 @@ public class Student {
     }
 
     //Getters
-    public String getStudentId() {
+    public Student getStudentId() {
         return studentId;
     }
 
