@@ -3,20 +3,21 @@ StudentAddressService.java
 Author: Monehi Tuoane (219350744)
 Date: 18 June 2022
 */
-package service;
+package service.Impl;
 
 
 
 import domain.StudentAddress;
 import org.springframework.stereotype.Service;
 import repository.IStudentAddressRepository;
+import service.IStudentAddressService;
 
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentAddressService implements IStudentAddressService{
+public class StudentAddressService implements IStudentAddressService {
 
     private final IStudentAddressRepository repository;
 
@@ -26,7 +27,7 @@ public class StudentAddressService implements IStudentAddressService{
     }
 
     @Override
-    public StudentAddress create(StudentAddress studentAddress) {
+    public StudentAddress save(StudentAddress studentAddress) {
         return null;
     }
 
@@ -35,10 +36,6 @@ public class StudentAddressService implements IStudentAddressService{
         return null;
     }
 
-    @Override
-    public void delete(String s) {
-
-    }
 
     @Override
     public List<StudentAddress> findAll() {
@@ -47,6 +44,16 @@ public class StudentAddressService implements IStudentAddressService{
 
     @Override
     public void deleteById(String studentId) {
+
+    }
+
+    @Override
+    public Optional<StudentAddress> read(String s) {
+        return Optional.empty();
+    }
+
+    @Override
+    public void delete(String studentId) {
 
     }
 
@@ -61,6 +68,16 @@ public class StudentAddressService implements IStudentAddressService{
     @Override
     public Optional<StudentAddress> read(String s) {
         return this.repository.findById(s);
+    }
+
+    @Override
+    public StudentAddress findById(String s) {
+        return null;
+    }
+
+    @Override
+    public void delete(String s) {
+
     }
 
     @Override

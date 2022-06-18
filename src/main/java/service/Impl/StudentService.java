@@ -4,12 +4,13 @@ Author: Monehi Tuoane (219350744)
 Date: 18 June 2022
 */
 
-package service;
+package service.Impl;
 
 import domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.IStudentRepository;
+import service.IStudentService;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public Student create(Student student) {
+    public Student save(Student student) {
         return null;
     }
 
@@ -46,39 +47,12 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public void deleteById(String id) {
-
-    }
-
-
-
-/*
-    public Student save(Student studentId) {
-        return this.repository.save(studentId);
-    }
-
-
-    public Optional<Student> read(Student student) {
+    public Optional<Student> read(String s) {
         return Optional.empty();
     }
 
-
-    public Optional<Student> read(String studentId) {
-        return this.repository.findById(studentId);
-    }
-
-    //@Override
-    public void delete(Student student) {
-        this.repository.delete(student);
-    }
-
     @Override
-    public void deleteById(String studentId) {
-        Optional<Student> student = read(studentId);
-        if (student.isPresent()) delete(student.get());
+    public void deleteById(String id) {
+
     }
-
- */
-
-
 }

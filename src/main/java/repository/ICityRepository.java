@@ -8,11 +8,11 @@ import domain.City;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ICityRepository extends JpaRepository<City, String> {
 
-    List<City> findCityNameByCountryId(String countryId);
+    Optional<City> findCityNameByCountryId(String countryId);
 
 }
