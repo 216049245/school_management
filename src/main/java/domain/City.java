@@ -4,20 +4,43 @@
    */
 package domain;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+//@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="city")
+@Entity
 public class City {
-    private final String id;
-    private final String name;
-    private final Country country;
+    @Id
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  String cityId;
+
+    @Column(name="cityName")
+    private  String name;
+
+    @Column(name="cityName")
+    private  Country country;
+
+    @OneToMany
+    @JoinColumn(name="countryId")
+    Country countryObject;
+
+    private City(){}
 
     private City(Builder builder){
-        this.id = builder.id;
+        this.cityId = builder.cityId;
         this.name = builder.name;
         this.country = builder.country;
 
     }
 
     public String getId() {
-        return id;
+        return cityId;
     }
 
     public String getName() {
@@ -29,12 +52,12 @@ public class City {
     }
 
     public static class Builder{
-        private String id;
+        private String cityId;
         private String name;
         private Country country;
 
-        public Builder id(String id){
-            this.id = id;
+        public Builder cityId(String cityId){
+            this.cityId = cityId;
             return this;
         }
 
@@ -49,8 +72,8 @@ public class City {
         }
 
         public Builder copy(City city){
-            this.id = city.id;
-            this.name = city.id;
+            this.cityId = city.cityId;
+            this.name = city.name;
             this.country = city.country;
             return this;
         }
@@ -61,7 +84,7 @@ public class City {
     @Override
     public String toString() {
         return "City{" +
-                "id='" + id + '\'' +
+                "id='" + cityId + '\'' +
                 ", name='" + name + '\'' +
                 ", country=" + country +
                 '}';
